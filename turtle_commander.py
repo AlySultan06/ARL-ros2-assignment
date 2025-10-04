@@ -15,7 +15,7 @@ class turtleCommander(Node):
         self.star_timer = None
         self.spiral_timer = None
         self.star_step = 0
-        self.star_points = 5  # draw a 5-pointed star
+        self.star_points = 5 
 
 
     def listener_callback(self,msg:String):
@@ -48,7 +48,7 @@ class turtleCommander(Node):
 
     def draw_star(self):
         self.star_step = 0
-        self.star_timer = self.create_timer(2.0, self.star_callback)  # every 2s move/turn
+        self.star_timer = self.create_timer(2.0, self.star_callback) 
 
 
     def star_callback(self):
@@ -87,8 +87,7 @@ class turtleCommander(Node):
     def spiral_callback(self):
      cmd = Twist()
      cmd.linear.x = 2.0
-     # gradually increase turning angle, but slower
-     cmd.angular.z = 0.5 + 0.05 * (self.spiral_step / 5.0)  # slower growth
+     cmd.angular.z = 0.5 + 0.05 * (self.spiral_step / 5.0)  
      self.publisher.publish(cmd)
      
 
